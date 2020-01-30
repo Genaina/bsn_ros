@@ -104,6 +104,7 @@ class Analyzer:
         receive_id = rospy.ServiceProxy('address', Address)
         resp = receive_id()
         
+        print('received file info')
         return resp.id
 
     def receive_enactor_info(self):
@@ -111,6 +112,8 @@ class Analyzer:
         receive_info = rospy.ServiceProxy('enactor_info', EnactorInfo)
         resp = receive_info()
 
+        print('received enactor info')
+        
         self.enactor_kp = resp.kp
         self.enactor_ki = resp.ki
 
